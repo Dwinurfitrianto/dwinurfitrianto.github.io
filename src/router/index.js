@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Juz2 from "../views/Juz 2.vue";
+import Juz3 from "../views/Juz 3.vue";
+import Juz4 from "../views/Juz 4.vue";
+import Juz5 from "../views/Juz 5.vue";
+import Juz6 from "../views/Juz 6.vue";
 import AsySyams from "../views/Asy-Syams.vue";
 import Juz from "../views/Juz 1.vue";
 import ListChapters from "../views/List Chapters.vue";
@@ -32,6 +36,26 @@ const router = createRouter({
       path: "/juz",
       name: "Juz",
       component: Juz,
+    },
+    {
+      path: "/juz3",
+      name: "Juz3",
+      component: Juz3,
+    },
+    {
+      path: "/juz4",
+      name: "Juz4",
+      component: Juz4,
+    },
+    {
+      path: "/juz5",
+      name: "Juz5",
+      component: Juz5,
+    },
+    {
+      path: "/juz6",
+      name: "Juz6",
+      component: Juz6,
     },
     {
       path: "/juz30",

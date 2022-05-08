@@ -3,16 +3,18 @@ import Navbar from "../components/Navbar.vue";
 </script>
 <script>
 export default {
-  name: "Juz2",
+  name: "Juz3",
   data() {
     return {
       Albaqoroh: [],
+      Alimran : [],
       translateBaqoroh: [],
+      translateImran: [],
     }
   },
   methods: {
     getAlbaqoroh() {
-      fetch('https://api.quran.com/api/v4/quran/verses/uthmani?juz_number=2', {
+      fetch('https://api.quran.com/api/v4/quran/verses/uthmani_simple?chapter_number=2&juz_number=3', {
         method: 'GET'
       })
         .then(res => {
@@ -24,8 +26,21 @@ export default {
           this.Albaqoroh = json.verses;
         })
     },
+    getAlimran() {
+      fetch('https://api.quran.com/api/v4/quran/verses/uthmani_simple?chapter_number=3&juz_number=3', {
+        method: 'GET'
+      })
+        .then(res => {
+          if (res.ok) {
+            return res.json()
+          }
+        })
+        .then(json => {
+          this.Alimran = json.verses;
+        })
+    },
     getTranslateAlbaqoroh() {
-      fetch('https://api.quran.com/api/v4/quran/translations/33?juz_number=2', {
+      fetch('https://api.quran.com/api/v4/quran/translations/33?chapter_number=2&juz_number=3', {
         method: 'GET'
       })
         .then(response => {
@@ -37,10 +52,25 @@ export default {
           this.translateBaqoroh = json.translations;
         });
     },
+    getTranslateAlimran() {
+      fetch('https://api.quran.com/api/v4/quran/translations/33?chapter_number=3&juz_number=3', {
+        method: 'GET'
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then(json => {
+          this.translateImran = json.translations;
+        });
+    },
   },
   mounted() {
     this.getAlbaqoroh();
+    this.getAlimran();
     this.getTranslateAlbaqoroh();
+    this.getTranslateAlimran();
   }
 }
 </script>
@@ -53,10 +83,10 @@ export default {
       <div className="after"></div>
       <div className="text">
         <p className="title text-black text-center">
-          "Juz 2"
+          "Juz 3"
         </p>
         <p className="subtitle text-center text-black">
-          Surah Al-Baqoroh 142-252
+          Surah Al-Baqoroh 253-286 & Surah Al-Imran 1-92
         </p>
       </div>
     </section>
@@ -66,15 +96,33 @@ export default {
     <hr>
     <div v-for="verse in Albaqoroh">
       <p className="ayat text-end">
-        {{ verse.verse_key }} {{ verse.text_uthmani }}
+        {{ verse.verse_key }} {{ verse.text_uthmani_simple }}
+      </p>
+      <hr>
+    </div>
+    <p class="baqoroh m-1 "><strong>Al-Imran 1-92</strong></p>
+    <hr>
+    <div v-for="verse in Alimran">
+      <p class="ayat text-end">
+        {{verse.verse_key}} {{verse.text_uthmani_simple}}
       </p>
       <hr>
     </div>
     <p className="terjemahan m-1">Terjemahan</p>
     <hr>
+    <p class="baqoroh m-1 "><strong>Al-Baqoroh 253-286</strong></p>
+    <hr>
     <div v-for="translations in translateBaqoroh">
       <p className="translate text-start">
         {{ translations.text }}
+      </p>
+      <hr>
+    </div>
+    <p class="fatihah m-1 "><strong>Al-Imran 1-92</strong></p>
+    <hr>
+    <div v-for="translations in translateImran">
+      <p class="translate text-start">
+        {{translations.text}}
       </p>
       <hr>
     </div>
@@ -87,8 +135,16 @@ export default {
   </footer>
 </template>
 
-<!--Get Utsmani Script of ayah-->
+<!--Get Uthmani simple script of ayah-->
 
 <style>
+.baqoroh {
+  background-color: #b4710e;
+  padding: 5px;
+}
 
+.fatihah {
+  background-color: #b4710e;
+  padding: 5px;
+}
 </style>

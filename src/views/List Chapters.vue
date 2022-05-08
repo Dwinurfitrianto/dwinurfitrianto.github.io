@@ -8,7 +8,6 @@ export default {
     return{
       chapters: [],
       audio_files: [],
-      juzs : [],
     }
   },
   methods: {
@@ -41,25 +40,10 @@ export default {
 
         });
     },
-    getJuz() {
-      fetch('https://api.quran.com/api/v4/juzs', {
-        method: 'GET'
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-        })
-        .then(json => {
-          //console.log(json)
-          this.juzs = json.juzs;
-        })
-    },
   },
   mounted() {
     this.getChapter2();
     this.getAudioFull();
-    this.getJuz();
   }
 }
 </script>
@@ -79,22 +63,6 @@ export default {
       </div>
       </section>
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
-    <hr>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Juz
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">
-          <div v-for="juzs in juzs">
-            <p class="jus text-end">
-              Juz {{juzs.id}}
-            </p>
-            <hr>
-          </div>
-        </a></li>
-      </ul>
-    </div>
     <hr>
 
     <div id="kumpulan" v-for="chapters in chapters">

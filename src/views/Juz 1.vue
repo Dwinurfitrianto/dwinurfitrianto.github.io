@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.vue";
 </script>
 <script>
 export default {
-  name: "Juz",
+  name: "Juz1",
   data(){
     return{
     Alfatihah : [],
@@ -92,7 +92,7 @@ export default {
     </section>
     <hr>
 
-    <p class="fatihah  mt-3 p-2"><strong>Al-Fatihah</strong></p>
+    <p class="fatihah  mt-3 p-2"><strong>Al-Fatihah 1-7</strong></p>
     <hr>
     <div v-for="verse in Alfatihah">
       <p class="ayat text-end">
@@ -100,7 +100,7 @@ export default {
       </p>
     </div>
     <hr>
-    <p class="baqoroh m-1 "><strong>Al-Baqoroh</strong></p>
+    <p class="baqoroh m-1 "><strong>Al-Baqoroh 1-141</strong></p>
     <hr>
     <div v-for="verse in Albaqoroh">
       <p class="ayat text-end">
@@ -109,7 +109,7 @@ export default {
     </div>
     <p class="terjemahan m-1">Terjemahan</p>
     <hr>
-    <p class="fatihah m-1"><strong>Al-Fatihah</strong></p>
+    <p class="fatihah m-1"><strong>Al-Fatihah 1-7</strong></p>
     <hr>
     <div v-for="translations in translations">
       <p class="translate text-start">
@@ -117,7 +117,7 @@ export default {
       </p>
       <hr>
     </div>
-    <p class="fatihah m-1 "><strong>Al-Baqoroh</strong></p>
+    <p class="fatihah m-1 "><strong>Al-Baqoroh 1-141</strong></p>
     <hr>
     <div v-for="translations in translateBaqoroh">
       <p class="translate text-start">

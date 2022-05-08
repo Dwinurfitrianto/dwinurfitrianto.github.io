@@ -168,6 +168,7 @@ export default {
   font-family: "Times New Roman";
   font-size: 20px;
   margin-left: 20px;
+  margin-right: 20px;
 }
 .ayat{
   font-weight: bold;

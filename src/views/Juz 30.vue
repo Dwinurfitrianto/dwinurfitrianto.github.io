@@ -87,16 +87,8 @@ export default {
   </footer>
 </template>
 
-<!--Get Imlaei Script of ayah-->
+<!--Get Indopak Script of ayah-->
 
 <style>
-.baqoroh {
-  background-color: #b4710e;
-  padding: 5px;
-}
 
-.fatihah {
-  background-color: #b4710e;
-  padding: 5px;
-}
 </style>

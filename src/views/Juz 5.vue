@@ -3,16 +3,16 @@ import Navbar from "../components/Navbar.vue";
 </script>
 <script>
 export default {
-  name: "Juz2",
+  name: "Juz5",
   data() {
     return {
-      Albaqoroh: [],
-      translateBaqoroh: [],
+      Annisa: [],
+      translateNisa: [],
     }
   },
   methods: {
-    getAlbaqoroh() {
-      fetch('https://api.quran.com/api/v4/quran/verses/uthmani?juz_number=2', {
+    getAnnisa() {
+      fetch('https://api.quran.com/api/v4/quran/verses/imlaei?juz_number=5', {
         method: 'GET'
       })
         .then(res => {
@@ -21,11 +21,11 @@ export default {
           }
         })
         .then(json => {
-          this.Albaqoroh = json.verses;
+          this.Annisa = json.verses;
         })
     },
-    getTranslateAlbaqoroh() {
-      fetch('https://api.quran.com/api/v4/quran/translations/33?juz_number=2', {
+    getTranslateAnnisa() {
+      fetch('https://api.quran.com/api/v4/quran/translations/33?juz_number=5', {
         method: 'GET'
       })
         .then(response => {
@@ -34,13 +34,13 @@ export default {
           }
         })
         .then(json => {
-          this.translateBaqoroh = json.translations;
+          this.translateNisa = json.translations;
         });
     },
   },
   mounted() {
-    this.getAlbaqoroh();
-    this.getTranslateAlbaqoroh();
+    this.getAnnisa();
+    this.getTranslateAnnisa();
   }
 }
 </script>
@@ -53,10 +53,10 @@ export default {
       <div className="after"></div>
       <div className="text">
         <p className="title text-black text-center">
-          "Juz 2"
+          "Juz 5"
         </p>
         <p className="subtitle text-center text-black">
-          Surah Al-Baqoroh 142-252
+          Surah An-Nisa 24-147
         </p>
       </div>
     </section>
@@ -64,15 +64,15 @@ export default {
 
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
-    <div v-for="verse in Albaqoroh">
+    <div v-for="verse in Annisa">
       <p className="ayat text-end">
-        {{ verse.verse_key }} {{ verse.text_uthmani }}
+        {{ verse.verse_key }} {{ verse.text_imlaei }}
       </p>
       <hr>
     </div>
     <p className="terjemahan m-1">Terjemahan</p>
     <hr>
-    <div v-for="translations in translateBaqoroh">
+    <div v-for="translations in translateNisa">
       <p className="translate text-start">
         {{ translations.text }}
       </p>
@@ -87,7 +87,7 @@ export default {
   </footer>
 </template>
 
-<!--Get Utsmani Script of ayah-->
+<!--Get Imlaei Simple text of ayah-->
 
 <style>
 

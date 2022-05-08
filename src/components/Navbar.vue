@@ -36,6 +36,10 @@ export default {
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/juz">Juz 1</a></li>
               <li><a class="dropdown-item" href="/juz2">Juz 2</a></li>
+              <li><a class="dropdown-item" href="/juz3">Juz 3</a></li>
+              <li><a class="dropdown-item" href="/juz4">Juz 4</a></li>
+              <li><a class="dropdown-item" href="/juz5">Juz 5</a></li>
+              <li><a class="dropdown-item" href="/juz6">Juz 6</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/juz30">Juz 30</a></li>
             </ul>
