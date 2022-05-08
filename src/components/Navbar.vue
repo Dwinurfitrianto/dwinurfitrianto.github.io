@@ -21,7 +21,7 @@ export default {
             <a class="nav-link" href="/listchapters">List Chapters</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/asysyams">Asy-Syams</a>
+            <a class="nav-link" href="/yasin">Yasin</a>
           </li>
           <!--<li class="nav-item">
             <a class="nav-link" href="/juz">Juz 1</a>
