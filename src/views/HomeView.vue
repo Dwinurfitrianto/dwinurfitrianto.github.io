@@ -7,42 +7,21 @@ import Navbar from "../components/Navbar.vue";
 <template>
   <main>
     <Navbar/>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <section class="home">
+      <div class="awal"></div>
+      <div class="opening">
+        <p class="welcome text-center text-black">
+          "Welcome To My Website"
+        </p>
+        <p class="kata text-center text-black">
+          Ini merupakan Website Front-End yang saya buat menggunakan API yang disediakan oleh Quran.com guna untuk menyelesaikan tugas UTS mata kuliah Pemograman Web.
+        </p>
+        <p class="api text-center">API Quran.com dapat di akses melalui tombol dibawah ini!</p>
+        <a class="btn btn-danger btn-lg" href="#" role="button"> <a href="https://quran.api-docs.io/v4/getting-started/introduction" class="text-dark fw-bold">Quran.com</a></a>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="src/assets/ramadhan.jpg" class="d-block w-100" alt="1">
-        </div>
-        <div class="carousel-item">
-          <img src="src/assets/s.jpg" class="d-block w-100" alt="2">
-        </div>
-        <div class="carousel-item">
-          <img src="src/assets/a.jpg" class="d-block w-100" alt="3">
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-          <div id="jumbotron" class="jumbotron">
-            <h1 class="display-4">Welcome To My Website</h1>
-            <p class="lead">Ini merupakan Website Front-End yang saya buat menggunakan API yang disediakan oleh Quran.com guna untuk menyelesaikan tugas UTS mata kuliah Pemograman Web.</p>
-            <hr class="my-4">
-            <p>API Quran.com dapat di akses melalui tombol dibawah ini!</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button"> <a href="https://quran.api-docs.io/v4/getting-started/introduction" class="text-white fw-bold">Quran.com</a></a>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    </section>
   </main>
+  <hr>
   <footer class="text-white text-center pb-1">
     <p> <strong>UTS Pemrograman Web</strong> <i class="bi bi-heart-fill text-danger"></i> By <a href="https://github.com/Dwinurfitrianto?tab=repositories" class="text-white fw-bold" >Dwi Nur Fitrianto</a>
       &copy; {{year}} </p>
@@ -53,29 +32,42 @@ import Navbar from "../components/Navbar.vue";
 footer{
   background-color: #b4710e;
 }
-#jumbotron{
-  color: #181818;
-  padding:100px;
-  height: 690px;
-  font-weight: bold;
+.awal{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(231, 169, 0, 0.4);
 }
-.lead{
-  font-family: "Times New Roman";
+.home{
+  height: 90vh;
+  background-image: url("src/assets/kom.jpg");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Bernard MT Condensed";
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 2);
 }
-.display-4{
-  margin-top: 17rem;
-  font-weight: bold;
-  font-family: "Rockwell Extra Bold";
-}
- .carousel-item{
-   height: 700px;
- }
-.carousel-item galeri{
-  margin-top: -120px;
-}
+.opening{
+  font-size: 20px;
+  margin-top: 2rem;
+  z-index: 1;
+  padding: 250px 270px;
 
-#carouselExampleIndicators{
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 2);
-  border-radius: 12px;
+}
+.welcome{
+  font-size: 50px;
+  border: 4px solid #000000;
+}
+.api{
+  z-index: 1;
+}
+.btn{
+  margin-left: 430px;
 }
 </style>
