@@ -94,36 +94,20 @@ export default {
 
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
-    <div v-for="verse in Annisa">
+    <div v-for="(verse,index) in Annisa">
       <p className="ayat text-end">
         {{ verse.verse_key }} {{ verse.text_imlaei}}
       </p>
+      <p class="arti" v-if="translateNisa">{{index+148}}. {{translateNisa[index].text}}</p>
       <hr>
     </div>
     <p class="baqoroh m-1 "><strong>Al-Maidah 1-81 </strong></p>
     <hr>
-    <div v-for="verse in Almaidah">
+    <div v-for="(verse,index) in Almaidah">
       <p class="ayat text-end">
         {{verse.verse_key}} {{verse.text_imlaei}}
       </p>
-      <hr>
-    </div>
-    <p className="terjemahan m-1">Terjemahan</p>
-    <hr>
-    <p class="baqoroh m-1 "><strong>Al-Maidah 1-81</strong></p>
-    <hr>
-    <div v-for="translations in translateNisa">
-      <p className="translate text-start">
-        {{ translations.text }}
-      </p>
-      <hr>
-    </div>
-    <p class="fatihah m-1 "><strong>Al-Imran 1-92</strong></p>
-    <hr>
-    <div v-for="translations in translateMaidah">
-      <p class="translate text-start">
-        {{translations.text}}
-      </p>
+      <p class="arti" v-if="translateMaidah">{{index+1}}. {{translateMaidah[index].text}}</p>
       <hr>
     </div>
 

@@ -94,35 +94,21 @@ export default {
 
     <p class="fatihah  mt-3 p-2"><strong>Al-Fatihah 1-7</strong></p>
     <hr>
-    <div v-for="verse in Alfatihah">
+    <div v-for="(verse,index) in Alfatihah">
       <p class="ayat text-end">
         {{verse.verse_key}} {{verse.text_imlaei}}
       </p>
-    </div>
-    <hr>
-    <p class="baqoroh m-1 "><strong>Al-Baqoroh 1-141</strong></p>
-    <hr>
-    <div v-for="verse in Albaqoroh">
-      <p class="ayat text-end">
-        {{verse.verse_key}} {{verse.text_imlaei}}
-      </p>
-    </div>
-    <p class="terjemahan m-1">Terjemahan</p>
-    <hr>
-    <p class="fatihah m-1"><strong>Al-Fatihah 1-7</strong></p>
-    <hr>
-    <div v-for="translations in translations">
-      <p class="translate text-start">
-        {{translations.text}}
-      </p>
+      <p class="arti" v-if="translations">{{index+1}}. {{translations[index].text}}</p>
       <hr>
     </div>
-    <p class="fatihah m-1 "><strong>Al-Baqoroh 1-141</strong></p>
+
+    <p class="baqoroh m-1 "><strong>Al-Baqoroh 1-141</strong></p>
     <hr>
-    <div v-for="translations in translateBaqoroh">
-      <p class="translate text-start">
-        {{translations.text}}
+    <div v-for="(verse,index) in Albaqoroh">
+      <p class="ayat text-end">
+        {{verse.verse_key}} {{verse.text_imlaei}}
       </p>
+      <p class="arti" v-if="translateBaqoroh">{{index+1}}. {{translateBaqoroh[index].text}}</p>
       <hr>
     </div>
 
@@ -138,10 +124,14 @@ export default {
 <style>
 .baqoroh{
   background-color: #b4710e;
-  padding: 5px;
+  padding: 10px;
+  font-family: "Times New Roman";
+  font-size: 20px;
 }
 .fatihah{
   background-color: #b4710e;
-  padding: 5px;
+  padding: 10px;
+  font-family: "Times New Roman";
+  font-size: 20px;
 }
 </style>

@@ -1,10 +1,6 @@
-<script setup>
-import Navbar from "../components/Navbar.vue";
-</script>
 <script>
-
 export default {
-  name: "Asy-Syams",
+  name: "surah83",
   data(){
     return{
       chapter: null,
@@ -16,7 +12,7 @@ export default {
   },
   methods: {
     getChapter(){
-      fetch('https://api.quran.com/api/v4/chapters/36?language=id',{
+      fetch('https://api.quran.com/api/v4/chapters/83?language=id',{
         method: 'GET'
       })
         .then(response => {
@@ -29,7 +25,7 @@ export default {
         })
     },
     getQuran(){
-      fetch('https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=36', {
+      fetch('https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=83&juz_number=30', {
         method: 'GET'
       })
         .then(res =>{
@@ -42,7 +38,7 @@ export default {
         })
     },
     getTranslate() {
-      fetch('https://api.quran.com/api/v4/quran/translations/33?chapter_number=36', {
+      fetch('https://api.quran.com/api/v4/quran/translations/33?chapter_number=83&juz_number=30', {
         method: 'GET'
       })
         .then(response => {
@@ -55,7 +51,7 @@ export default {
         });
     },
     getAudio() {
-      fetch('https://api.quran.com/api/v4/chapter_recitations/5/36', {
+      fetch('https://api.quran.com/api/v4/chapter_recitations/5/83', {
         method: 'GET'
       })
         .then(response => {
@@ -72,7 +68,7 @@ export default {
 
     },
     getInfo() {
-      fetch('https://api.quran.com/api/v4/chapters/36/info?language=id', {
+      fetch('https://api.quran.com/api/v4/chapters/83/info?language=id', {
         method: 'GET'
       })
         .then(response => {
@@ -101,21 +97,8 @@ export default {
 <template>
   <main>
     <Navbar/>
-    <section class="heeder">
-      <div class="atas"></div>
-      <div class="text">
-        <p class="title text-black">
-          QS. Yasin (Makkiyah)
-        </p>
-        <p class="subtitle text-center text-black">
-          Surah ke 36
-        </p>
-      </div>
-    </section>
-    <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
-    <hr>
     <section>
-      <h1 class="namasurah text-start" v-if="chapter">{{chapter.name_arabic}}
+      <h1 class="namasurah text-start" v-if="chapter">{{chapter.name_arabic}} ({{chapter.translated_name.name}})
         <br>{{chapter.verses_count}} Ayat</h1>
       <hr>
       <p class="info" v-if="chapter_info">{{chapter_info.text}}</p>
@@ -126,6 +109,8 @@ export default {
         </audio>
       </p>
       <hr>
+      <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
+      <hr>
       <div v-for="(verse,index) in verses">
         <p class="ayat text-end">
           {{verse.text_uthmani}} {{verse.verse_key}}
@@ -133,11 +118,6 @@ export default {
         <p class="arti" v-if="translations">{{index+1}}.{{translations[index].text}}</p>
         <hr>
       </div>
-
-      <footer class="text-white text-center pb-1">
-        <p> <strong>UTS Pemrograman Web</strong> <i class="bi bi-heart-fill text-danger"></i> By <a href="https://github.com/Dwinurfitrianto?tab=repositories" class="text-white fw-bold" >Dwi Nur Fitrianto</a>
-          &copy; {{year}} </p>
-      </footer>
 
 
     </section>
@@ -166,35 +146,7 @@ export default {
   margin-right: 20px;
   margin-left: 20px;
 }
-.heeder{
-  height: 50vh;
-  background-image: url("src/assets/kom.jpg");
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Bernard MT Condensed";
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 2);
-}
 
-.atas{
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(231, 169, 0, 0.4);
-}
-.text{
-  margin-top: 3rem;
-  z-index: 1;
-  padding: 20px 25px;
-  border: 4px solid #000000;
-  font-size: 35px;
-}
 .info{
   background-color: rgb(231, 169, 0, 0.4);
 }

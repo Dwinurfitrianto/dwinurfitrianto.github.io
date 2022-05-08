@@ -94,38 +94,23 @@ export default {
 
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
-    <div v-for="verse in Albaqoroh">
+    <div v-for="(verse,index) in Albaqoroh">
       <p className="ayat text-end">
         {{ verse.verse_key }} {{ verse.text_uthmani_simple }}
       </p>
+      <p class="arti" v-if="translateBaqoroh">{{index+253}}. {{translateBaqoroh[index].text}}</p>
       <hr>
     </div>
     <p class="baqoroh m-1 "><strong>Al-Imran 1-92</strong></p>
     <hr>
-    <div v-for="verse in Alimran">
+    <div v-for="(verse,index) in Alimran">
       <p class="ayat text-end">
         {{verse.verse_key}} {{verse.text_uthmani_simple}}
       </p>
+      <p class="arti" v-if="translateImran">{{index+1}}. {{translateImran[index].text}}</p>
       <hr>
     </div>
-    <p className="terjemahan m-1">Terjemahan</p>
-    <hr>
-    <p class="baqoroh m-1 "><strong>Al-Baqoroh 253-286</strong></p>
-    <hr>
-    <div v-for="translations in translateBaqoroh">
-      <p className="translate text-start">
-        {{ translations.text }}
-      </p>
-      <hr>
-    </div>
-    <p class="fatihah m-1 "><strong>Al-Imran 1-92</strong></p>
-    <hr>
-    <div v-for="translations in translateImran">
-      <p class="translate text-start">
-        {{translations.text}}
-      </p>
-      <hr>
-    </div>
+
 
   </main>
   <footer className="text-white text-center pb-1">

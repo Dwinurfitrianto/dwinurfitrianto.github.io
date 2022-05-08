@@ -25,7 +25,7 @@ export default {
         })
     },
     getAudioFull() {
-      fetch('https://api.quran.com/api/v4/chapter_recitations/1?language=id', {
+      fetch('https://api.quran.com/api/v4/chapter_recitations/5?language=id', {
         method: 'GET'
       })
         .then(response => {
@@ -65,7 +65,7 @@ export default {
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
 
-    <div id="kumpulan" v-for="chapters in chapters">
+    <div id="kumpulan" v-for="(chapters,index) in chapters">
       <p class="surah text-start">
         Surah {{chapters.id}}
         <br>{{chapters.name_simple}} ({{chapters.name_arabic}})
@@ -73,21 +73,12 @@ export default {
         <br>{{chapters.verses_count}} Ayat
         <br>{{chapters.revelation_place}}
       </p>
+      <p class="audio" v-if="audio_files">
+        <audio controls>
+          <source :src=audio_files[index].audio_url type="audio/mpeg">Your browser does not support the audio element.</audio> </p>
       <hr>
     </div>
-    <p class="suara m-1 "><strong>Audio</strong></p>
-    <hr>
-    <div id="audio">
-      <p v-for="audio_files in audio_files" class="audio m-3">
-        <strong>Surah {{audio_files.chapter_id}}</strong>
-        <br>
-        <audio controls>
-          <source :src=audio_files.audio_url type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </p>
 
-    </div>
 
 
     </main>

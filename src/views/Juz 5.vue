@@ -64,18 +64,11 @@ export default {
 
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
-    <div v-for="verse in Annisa">
+    <div v-for="(verse,index) in Annisa">
       <p className="ayat text-end">
         {{ verse.verse_key }} {{ verse.text_imlaei }}
       </p>
-      <hr>
-    </div>
-    <p className="terjemahan m-1">Terjemahan</p>
-    <hr>
-    <div v-for="translations in translateNisa">
-      <p className="translate text-start">
-        {{ translations.text }}
-      </p>
+      <p class="arti" v-if="translateNisa">{{index+24}}. {{translateNisa[index].text}}</p>
       <hr>
     </div>
 

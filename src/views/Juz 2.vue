@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       Albaqoroh: [],
-      translateBaqoroh: [],
+      translateBaqoroh2: [],
     }
   },
   methods: {
@@ -34,7 +34,7 @@ export default {
           }
         })
         .then(json => {
-          this.translateBaqoroh = json.translations;
+          this.translateBaqoroh2 = json.translations;
         });
     },
   },
@@ -64,18 +64,11 @@ export default {
 
     <div class="bismilah text-center mt-3 p-2">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم </div>
     <hr>
-    <div v-for="verse in Albaqoroh">
+    <div v-for="(verse,index) in Albaqoroh">
       <p className="ayat text-end">
         {{ verse.verse_key }} {{ verse.text_uthmani }}
       </p>
-      <hr>
-    </div>
-    <p className="terjemahan m-1">Terjemahan</p>
-    <hr>
-    <div v-for="translations in translateBaqoroh">
-      <p className="translate text-start">
-        {{ translations.text }}
-      </p>
+      <p class="arti" v-if="translateBaqoroh2">{{index+142}}. {{translateBaqoroh2[index].text}}</p>
       <hr>
     </div>
 
